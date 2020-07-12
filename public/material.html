@@ -43,6 +43,7 @@
 			<div class="form-group" style="text-align: center;">
 				<button type="submit" class="btn btn-success">提交</button>
 				<button type="submit" class="btn btn-warning">删除</button>
+				<button type="submit" class="btn btn-info">更新</button>
 			</div>
 		</div>
 	</body>
@@ -59,10 +60,9 @@
 				uscLoc:$('#uscLoc').val(),
 				mnum:$('#mnum').val(),
 			}
-			// console.log(materData)
 			$.ajax({
 				type:'GET',
-				url:'/api/material',
+				url:'/api/materialAdd',
 				data:materData,
 				success:data => {
 					console.log(data)
@@ -81,6 +81,31 @@
 			$.ajax({
 				type:'GET',
 				url:'/api/materialDelete/'+materData.prjid,
+				data:materData,
+				success:data => {
+					console.log(data)
+				},
+				error: error => {
+					console.log(error)
+				}
+			})
+		})
+
+		// 更新
+		$('.btn-info').click(function (){
+			let materData = {
+				prjid:$('#prjid').val(),
+				planname:$('#planname').val(),
+				cmtid:$('#cmtid').val(),
+				leaderNext:$('#leaderNext').val(),
+				cdate:$('#cdate').val(),
+				mname:$('#mname').val(),
+				uscLoc:$('#uscLoc').val(),
+				mnum:$('#mnum').val(),
+			}
+			$.ajax({
+				type:'GET',
+				url:'/api/materialUpdate',
 				data:materData,
 				success:data => {
 					console.log(data)

@@ -4,7 +4,8 @@ const sqlMap = {
         userInsert: `INSERT INTO user_insert (username,password,email,phone) VALUES(?,?,?,?)`,
         materialInsert: `insert into material_table (prjid,planname,cmtid,leaderNext,cdate,mname,uscLoc,mnum) values(?,?,?,?,?,?,?,?)`,
         materialSearch: `select * from material_table where prjid = ?`,
-        materialDelete: `delete from material_table where prjid = ?`
+        materialDelete: `delete from material_table where prjid = ?`,
+        materialUpdate: `update material_table set planname = ?,cmtid = ?, leaderNext = ?, cdate = ?, mname = ?, uscLoc = ?, mnum = ? where prjid = ?`
     }
 }
 module.exports = sqlMap

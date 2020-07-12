@@ -41,11 +41,6 @@ router.get('/', function(req, res, next) {
 		}
 	})
 
-	/*
-		删除数据
-	*/
-	db.query(materialConfig.user.materialDelete, m.prjid,)
-
 });
 
 module.exports = router;

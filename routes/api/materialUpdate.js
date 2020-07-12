@@ -18,21 +18,22 @@ router.get('/', function(req, res, next) {
 	*/
 	/** update 主逻辑 **/
 	function mUpdate() {
-		let add = [m.prjid, m.planname, m.cmtid, m.leaderNext, m.cdate, m.mname, m.uscLoc, m.mnum]
-		db.query(materialConfig.user.materialInsert, add, (result, fields) => {
+		let add = [m.planname, m.cmtid, m.leaderNext, m.cdate, m.mname, m.uscLoc, m.mnum, m.prjid]
+		db.query(materialConfig.user.materialUpdate, add, (result, fields) => {
 			if (fields) {
 				console.log(fields)
 				return // end
-			}
-			res.json({code: 1,msg: 'insert is success'})
+            }
+			res.json({code: 1,msg: 'update success'})
 		})
 	}
 	
 	db.query(materialConfig.user.materialSearch, m.prjid, (result, fields) => {
 		if (result.length) {
-			res.json({code: -1,msg: 'id存在'})
-		} else {
+            console.log(result)
 			mUpdate()
+		} else {
+			res.json({code: -1,msg: 'update failed'})
 		}
 	})
 
