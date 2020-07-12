@@ -8,3 +8,7 @@
 【删】/api/materialDelete/:prjid
 
 参数：prjid
+
+【更】/api/materialUpdate
+
+参数：prjid, planname, cmtid, leaderNext, cdate, mname, uscLoc, mnum
